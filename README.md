@@ -1,0 +1,2 @@
+# AutoScrollView
+根据DCCycleScrollView修改成无限循环滚动
