@@ -7,7 +7,7 @@
 //
 
 #import "DCCycleScrollViewCell.h"
-#import <AVFoundation/AVFoundation.h>
+
 @interface DCCycleScrollViewCell()
 
 @end
@@ -19,13 +19,14 @@
     if(self = [super initWithFrame:frame])
     {
         [self.contentView addSubview:self.imageView];
+        [self.contentView addSubview:self.bottomLabel];
     }
     return self;
 }
 -(void)layoutSubviews
 {
     self.imageView.frame = self.bounds;
-    
+    self.bottomLabel.frame = self.bounds;
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.imageView.bounds cornerRadius:self.imgCornerRadius];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
     //设置大小
@@ -42,5 +43,14 @@
         _imageView = [[UIImageView alloc]init];
     }
     return _imageView;
+}
+-(UILabel *)bottomLabel
+{
+    if(_bottomLabel == nil)
+    {
+        _bottomLabel = [[UILabel alloc]init];
+        _bottomLabel.textColor = UIColor.whiteColor;
+    }
+    return _bottomLabel;
 }
 @end

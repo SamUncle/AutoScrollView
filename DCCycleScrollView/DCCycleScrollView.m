@@ -119,13 +119,14 @@ static NSString *const cellID = @"cellID";
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (self.autoScroll) {
-        [self setupTimer];
-    }
+    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    if (self.autoScroll) {
+        [self setupTimer];
+    }
 //    [self scrollViewDidEndScrollingAnimation:self.collectionView];
 }
 
@@ -186,6 +187,7 @@ static NSString *const cellID = @"cellID";
         }
     cell.imageView.contentMode = self.bannerImageViewContentMode;
     cell.imgCornerRadius = self.imgCornerRadius;
+    cell.bottomLabel.text = imagePath;
     return cell;
 }
 #pragma mark  - 代理方法
@@ -247,7 +249,7 @@ static NSString *const cellID = @"cellID";
         return;
     }
     CGPoint  point = self.collectionView.contentOffset;
-    point.x += 5;
+    point.x += 0.5;
     self.collectionView.contentOffset = point;
 //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index%4 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 
@@ -325,7 +327,7 @@ static NSString *const cellID = @"cellID";
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.scrollsToTop = NO;
-        _collectionView.pagingEnabled = YES;
+//        _collectionView.pagingEnabled = YES;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.backgroundColor = [UIColor clearColor];

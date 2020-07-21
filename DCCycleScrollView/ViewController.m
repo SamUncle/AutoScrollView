@@ -36,16 +36,12 @@
     NSArray *imageArr = @[@"h1.jpg",
                           @"h2.jpg",
                           @"h3.jpg",
-                          @"h4.jpg",
-                          @"h1.jpg",
-                          @"h2.jpg",
-                          @"h3.jpg",
-                          @"h4.jpg",
+                          @"h4.jpg"
                           ];
-    DCCycleScrollView *banner = [DCCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 135) shouldInfiniteLoop:YES imageGroups:imageArr];
+    DCCycleScrollView *banner = [DCCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 90) shouldInfiniteLoop:YES imageGroups:imageArr];
 //    banner.placeholderImage = [UIImage imageNamed:@"placeholderImage"];
 //    banner.cellPlaceholderImage = [UIImage imageNamed:@"placeholderImage"];
-    banner.autoScrollTimeInterval = 0.05;
+    banner.autoScrollTimeInterval = 0.01;
     banner.autoScroll = YES;
 //    banner.isZoom = YES;
     banner.itemSpace = 10;
