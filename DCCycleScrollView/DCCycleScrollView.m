@@ -149,6 +149,10 @@ static NSString *const cellID = @"cellID";
     }else{
         _dragDirection = 0;
     }
+    //解决来回滑动造成停止滚动问题
+    if (self.autoScroll) {
+        [self setupTimer];
+    }
 }
 
 - (void)scrollViewWillBeginDecelerating: (UIScrollView *)scrollView{
